@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="fr" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Dashboard Pro</title>
+    <title>API Dashboard Pro - Édition Célestin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,15 +11,20 @@
             theme: {
                 extend: {
                     colors: {
-                        blue: {"500":"#3b82f6"},
-                        gray: {
-                            "800": "#1e293b",
-                            "900": "#0f172a"
+                        blue: {
+                            "400": "#60a5fa",
+                            "500": "#3b82f6",
+                            "600": "#2563eb",
+                            "700": "#1d4ed8"
                         },
-                        "deep-black": "#020617",
-                        "gradient-start": "#00ffff",
-                        "gradient-mid": "#00bfff",
-                        "gradient-end": "#1e90ff"
+                        gray: {
+                            "800": "#0b132b",
+                            "900": "#050b14"
+                        },
+                        "deep-black": "#02040a",
+                        "gradient-start": "#38bdf8",
+                        "gradient-mid": "#2563eb",
+                        "gradient-end": "#1d4ed8"
                     },
                     fontFamily: {
                         'sans': ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
@@ -33,20 +38,20 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #020617;
+            background-color: #02040a;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(30, 144, 255, 0.05) 0%, transparent 20%);
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 25%);
             background-attachment: fixed;
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1e293b;
+            background: #050b14;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #00bfff;
+            background-color: #2563eb;
             border-radius: 20px;
         }
         .capitalize {
@@ -56,10 +61,10 @@
             word-break: break-all;
         }
         .bg-deep-black {
-            background-color: rgba(2, 6, 23, 0.8);
+            background-color: rgba(2, 4, 10, 0.85);
         }
         @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
+            0%, 100% { opacity: 0.4; }
             50% { opacity: 1; }
         }
         .loading-pulse {
@@ -71,7 +76,7 @@
                 opacity: 1;
             }
             50% {
-                transform: scale(1.05);
+                transform: scale(1.03);
                 opacity: 0.9;
             }
         }
@@ -93,12 +98,15 @@
             animation: rotateDown 0.3s ease-in-out forwards;
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #00ffff, #00bfff, #1e90ff);
+            background: linear-gradient(135deg, #38bdf8, #2563eb, #1d4ed8);
         }
         .gradient-text {
-            background: linear-gradient(135deg, #00ffff, #00bfff, #1e90ff);
+            background: linear-gradient(135deg, #38bdf8, #60a5fa, #2563eb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        .celestin-glow {
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
         }
         .helvetica-heading {
             font-weight: 700;
@@ -113,7 +121,7 @@
         @keyframes fadeInScale {
           0% {
             opacity: 0;
-            transform: scale(0.9);
+            transform: scale(0.95);
           }
           100% {
             opacity: 1;
@@ -133,7 +141,7 @@
         /* Scrollbar styles */
         .custom-scrollbar {
             scrollbar-width: thin;
-            scrollbar-color: rgba(0, 191, 255, 0.5) transparent;
+            scrollbar-color: rgba(37, 99, 235, 0.5) transparent;
         }
 
         .custom-scrollbar::-webkit-scrollbar {
@@ -145,7 +153,7 @@
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 191, 255, 0.5);
+            background-color: rgba(37, 99, 235, 0.5);
             border-radius: 20px;
             border: transparent;
         }
@@ -173,68 +181,63 @@
             display: block;
         }
         .method-btn.active {
-            background-color: #3b82f6;
+            background-color: #2563eb;
             color: white;
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
         }
     </style>
 </head>
 <body class="bg-deep-black text-gray-100">
     <div class="flex h-screen overflow-hidden">
-        <!-- Sidebar Overlay -->
-        <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden z-40"></div>
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm hidden z-40"></div>
 
-        <!-- Sidebar -->
-        <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-80 transform overflow-y-auto bg-gray-900 transition-all duration-300 ease-in-out -translate-x-full md:relative md:translate-x-0 custom-scrollbar hide-scrollbar">
+        <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-80 transform overflow-y-auto bg-gray-900 border-r border-blue-900/40 transition-all duration-300 ease-in-out -translate-x-full md:relative md:translate-x-0 custom-scrollbar hide-scrollbar">
             <div class="flex h-full flex-col">
                 <div class="flex flex-col">
                     <div class="flex items-center justify-between p-4 h-16">
                         <h2 id="sidebarTitle" class="text-sm font-medium text-white flex items-center helvetica-heading">
-                            <img src="https://i.ibb.co/XYk4dXn/image.png" alt="API" class="w-5 h-5 mr-2" />
+                            <img src="https://i.ibb.co/XYk4dXn/image.png" alt="API" class="w-5 h-5 mr-2 filter drop-shadow-[0_0_5px_rgba(56,189,248,0.8)]" />
                             <span id="sidebarTitleText" class="gradient-text">API Dashboard Pro</span>
                         </h2>
                     </div>
-                    <div class="h-[1px] bg-blue-500 w-full"></div>
+                    <div class="h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent w-full"></div>
                 </div>
                 <div class="px-4 py-4">
                     <div class="relative">
                         <input
                             type="search"
                             id="apiSearch"
-                            placeholder="Search APIs..."
-                            class="w-full px-4 py-2 text-sm text-gray-100 bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-gradient-start pl-9"
+                            placeholder="Rechercher des APIs..."
+                            class="w-full px-4 py-2 text-sm text-gray-100 bg-gray-800/80 border border-blue-900/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pl-9 transition-all"
                         />
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 absolute left-3 top-2.5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 absolute left-3 top-2.5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                         </svg>
                     </div>
                 </div>
                 <nav id="sidebarNav" class="flex-1 space-y-1 px-3 py-3">
-                    <!-- API categories and endpoints will be dynamically inserted here -->
-                </nav>
+                    </nav>
             </div>
         </div>
 
-        <!-- Main content -->
         <div class="relative flex flex-1 flex-col overflow-y-auto bg-deep-black custom-scrollbar hide-scrollbar">
-            <!-- Header -->
-            <header class="sticky top-0 z-30 bg-gray-900 bg-opacity-90 border-b border-blue-500">
+            <header class="sticky top-0 z-30 bg-gray-900/90 backdrop-blur-md border-b border-blue-600/30">
                 <div class="container mx-auto">
                     <div class="flex flex-col">
                         <div class="flex h-16 items-center justify-between px-4">
-                            <button id="toggleSidebar" class="md:hidden text-gray-100 hover:text-white focus:outline-none p-2 rounded-md">
+                            <button id="toggleSidebar" class="md:hidden text-gray-100 hover:text-white focus:outline-none p-2 rounded-md hover:bg-gray-800 transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                                 </svg>
                             </button>
                             <div id="greeting" class="text-sm font-medium text-gray-100 gradient-text"></div>
                             <div class="flex items-center">
-                                <!-- New API Tester Button -->
-                                <button id="apiTesterBtn" class="text-gray-100 hover:text-white focus:outline-none p-2 rounded-md mr-2">
+                                <button id="apiTesterBtn" class="text-gray-100 hover:text-blue-400 focus:outline-none p-2 rounded-md mr-2 hover:bg-gray-800 transition">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
                                 </button>
-                                <button id="showNotifications" class="text-gray-100 hover:text-white focus:outline-none p-2 rounded-md">
+                                <button id="showNotifications" class="text-gray-100 hover:text-blue-400 focus:outline-none p-2 rounded-md hover:bg-gray-800 transition">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                                     </svg>
@@ -245,46 +248,43 @@
                 </div>
             </header>
 
-            <!-- Main content -->
-            <main id="mainContent" class="flex-1 px-4 py-4 bg-gray-900 bg-opacity-50 relative z-20">
-                <!-- Cards will be dynamically inserted here -->
-            </main>
+            <main id="mainContent" class="flex-1 px-4 py-4 bg-gray-900/40 relative z-20">
+                </main>
         </div>
     </div>
 
-    <!-- Welcome Popup -->
-    <div id="welcomePopup" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
-        <div class="bg-gray-800 bg-opacity-90 rounded-lg border-2 border-gradient-mid p-6 max-w-md w-full mx-4 shadow-lg">
-            <h2 id="welcomeTitle" class="text-2xl font-bold gradient-text mb-4 helvetica-heading">Welcome to API Dashboard Pro!</h2>
-            <p class="text-gray-100 mb-6">Get started by exploring our API categories and endpoints. Use the search function to find specific APIs quickly.</p>
-            <div class="space-y-4">
+    <div id="welcomePopup" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-800/90 rounded-xl border border-blue-500/40 p-6 max-w-md w-full mx-4 shadow-2xl celestin-glow">
+            <h2 id="welcomeTitle" class="text-2xl font-bold gradient-text mb-4 helvetica-heading">Bienvenue sur API Dashboard Pro !</h2>
+            <p class="text-gray-300 mb-6 text-sm">Découvrez nos catégories et points de terminaison API. Utilisez la barre de recherche pour naviguer plus rapidement.</p>
+            <div class="space-y-4 text-sm">
                 <div class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 gradient-text mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <p class="text-gray-100">Browse API categories in the sidebar</p>
+                    <p class="text-gray-200">Parcourez les catégories d'APIs dans le menu latéral</p>
                 </div>
                 <div class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 gradient-text mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <p class="text-gray-100">Click on endpoints to view details and access the api or copy the api link</p>
+                    <p class="text-gray-200">Cliquez sur un endpoint pour afficher les détails et copier le lien</p>
                 </div>
                 <div class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 gradient-text mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <p class="text-gray-100">Use the search bar to find specific APIs</p>
+                    <p class="text-gray-200">Utilisez la recherche pour trouver une API spécifique</p>
                 </div>
-            <div class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 gradient-text mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <p class="text-gray-100">And if copy the endpoints link you can go back to home and press the button that is before notification icon</p>
+                    <p class="text-gray-200">Testez directement vos liens via l'icône de test dans le menu supérieur</p>
+                </div>
             </div>
-            </div>
-            <button id="closeWelcomePopup" class="mt-6 w-full gradient-bg text-white py-2 px-4 rounded-md hover:opacity-90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gradient-start focus:ring-opacity-50 transform hover:scale-105 helvetica-heading">
-                Get Started
+            <button id="closeWelcomePopup" class="mt-6 w-full gradient-bg text-white py-2.5 px-4 rounded-lg hover:brightness-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transform hover:scale-[1.02] helvetica-heading shadow-md">
+                Commencer
             </button>
         </div>
     </div>
@@ -306,14 +306,14 @@
             updateDashboard();
         } catch (error) {
             console.error('Error fetching API list:', error);
-            showErrorMessage('Failed to fetch API list. Please try again later.');
+            showErrorMessage('Impossible de récupérer la liste des APIs. Veuillez réessayer plus tard.');
         }
     }
 
     function showErrorMessage(message) {
         const mainContent = document.getElementById('mainContent');
         mainContent.innerHTML = `
-            <div class="bg-red-500 text-white p-4 rounded-md">
+            <div class="bg-red-900/50 border border-red-500/50 text-red-200 p-4 rounded-md">
                 <p>${message}</p>
             </div>
         `;
@@ -321,40 +321,40 @@
 
     const cardData = [
         {
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>',
-            title: 'Total Endpoints',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>',
+            title: 'Endpoints Totaux',
             id: 'totalEndpoints'
         },
         {
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>',
-            title: 'Total Categories',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>',
+            title: 'Catégories',
             id: 'totalCategories'
         },
         {
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>',
-            title: 'Battery',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>',
+            title: 'Batterie',
             id: 'batteryLevel'
         },
         {
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>',
-            title: 'Current Date',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>',
+            title: 'Date Actuelle',
             id: 'currentDate'
         },
         {
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
-            title: 'Current Time',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
+            title: 'Heure Actuelle',
             id: 'currentTime'
         }
     ];
 
     function generateCardHTML(card, index) {
         return `
-            <div class="bg-gray-800 bg-opacity-80 rounded-lg border-2 border-gradient-mid px-4 py-3 flex flex-col items-center justify-center h-32 shadow-lg card-animate" style="animation-delay: ${index * 0.1}s;">
-                <div class="gradient-text mb-2">
+            <div class="bg-gray-800/60 backdrop-blur-md rounded-xl border border-blue-600/30 px-4 py-3 flex flex-col items-center justify-center h-32 shadow-lg hover:border-blue-500/60 transition-all card-animate" style="animation-delay: ${index * 0.1}s;">
+                <div class="mb-2">
                     ${card.icon}
                 </div>
-                <h3 class="text-sm font-medium text-gray-100 mb-1 helvetica-heading">${card.title}</h3>
-                <p id="${card.id}" class="text-2xl font-semibold text-white loading-pulse gradient-text">--</p>
+                <h3 class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1 helvetica-heading">${card.title}</h3>
+                <p id="${card.id}" class="text-2xl font-bold text-white loading-pulse gradient-text">--</p>
             </div>
         `;
     }
@@ -391,28 +391,28 @@
         endpointDiv.className = 'rounded-md mb-1';
 
         const endpointButton = document.createElement('button');
-        endpointButton.className = 'flex w-full items-center justify-between px-3 py-2 text-sm text-gray-100 hover:bg-gray-800 transition-colors duration-200 ease-in-out rounded-md focus:outline-none focus:ring-2 focus:ring-gradient-start';
+        endpointButton.className = 'flex w-full items-center justify-between px-3 py-2 text-sm text-gray-200 hover:bg-blue-900/30 transition-colors duration-200 ease-in-out rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500';
         endpointButton.innerHTML = `
-            <span class="capitalize">${endpoint.name}</span>
-            <span class="bg-gray-700 text-gray-100 text-xs px-2 py-0.5 rounded">GET</span>
+            <span class="capitalize font-medium text-gray-300">${endpoint.name}</span>
+            <span class="bg-blue-950 border border-blue-500/40 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded">GET</span>
         `;
 
         const endpointDetails = document.createElement('div');
-        endpointDetails.className = 'mt-2 px-3 py-2 text-xs text-gray-300 bg-gray-800 rounded-md hidden';
+        endpointDetails.className = 'mt-2 px-3 py-2 text-xs text-gray-300 bg-gray-900/90 border border-blue-900/40 rounded-md hidden';
         endpointDetails.innerHTML = `
-            <p class="mb-2"><strong class="text-gray-100">Endpoint:</strong> <span class="break-all">${endpoint.endpoint}</span></p>
+            <p class="mb-2"><strong class="text-gray-100">Endpoint:</strong> <span class="break-all font-mono text-blue-300">${endpoint.endpoint}</span></p>
             <p class="mb-3"><strong class="text-gray-100">Description:</strong> ${endpoint.description}</p>
             <div class="flex justify-between items-center">
-                <a href="${endpoint.endpoint}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium text-white gradient-bg rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gradient-start transition-colors duration-200 ease-in-out">
-                    Access API
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <a href="${endpoint.endpoint}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold text-white gradient-bg rounded-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 ease-in-out">
+                    Accéder à l'API
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1.5" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                         <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                     </svg>
                 </a>
-                <button class="copy-btn inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium text-white bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-200 ease-in-out">
-                    Copy
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <button class="copy-btn inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold text-gray-200 bg-gray-800 border border-gray-700 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200 ease-in-out">
+                    Copier
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1.5" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
                         <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
                     </svg>
@@ -432,11 +432,11 @@
         copyBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             navigator.clipboard.writeText(endpoint.endpoint).then(() => {
-                copyBtn.textContent = 'Copied!';
+                copyBtn.textContent = 'Copié !';
                 setTimeout(() => {
                     copyBtn.innerHTML = `
-                        Copy
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        Copier
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1.5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
                             <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
                         </svg>
@@ -467,16 +467,16 @@
             categoryDiv.className = 'mb-1';
 
             const categoryButton = document.createElement('button');
-            categoryButton.className = 'flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium text-gray-100 transition-colors duration-200 ease-in-out hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gradient-start';
+            categoryButton.className = 'flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium text-gray-200 hover:bg-blue-900/30 hover:text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-blue-500';
             categoryButton.innerHTML = `
                 <span class="capitalize">${category}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200" style="transform: rotate(0deg);" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 transition-transform duration-200" style="transform: rotate(0deg);" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
             `;
 
             const endpointsDiv = document.createElement('div');
-            endpointsDiv.className = 'mt-1 space-y-1 pl-3 hidden';
+            endpointsDiv.className = 'mt-1 space-y-1 pl-3 hidden border-l border-blue-900/40 ml-2';
 
             endpoints.forEach(endpoint => {
                 endpointsDiv.appendChild(createEndpointElement(endpoint));
@@ -530,11 +530,14 @@
                 }
             });
         }
-    });    // Initial fetch and render
+    });
+
+    // Initial fetch and render
     async function initializeDashboard() {
         await fetchApiList();
         renderCards();
-        updateDashboard();        updateBatteryLevel();
+        updateDashboard();
+        updateBatteryLevel();
         updateDateTime();
     }
 
@@ -545,10 +548,10 @@
 
     function getGreeting() {
         const hour = new Date().getHours();
-        if (hour < 12) return "Good Morning";
-        if (hour < 18) return "Good Afternoon";
-        if (hour < 22) return "Good Evening";
-        return "Good Night";
+        if (hour < 12) return "Bonjour";
+        if (hour < 18) return "Bon après-midi";
+        if (hour < 22) return "Bonsoir";
+        return "Bonne nuit";
     }
 
     function updateGreeting() {
@@ -567,22 +570,22 @@
     showNotificationsBtn.addEventListener('click', () => {
         const notificationsHTML = `
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-800 bg-opacity-90 rounded-xl shadow-lg overflow-hidden border-2 border-gradient-mid">
+                <div class="bg-gray-800/80 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden border border-blue-500/30 celestin-glow">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-6">
                             <h2 class="text-2xl font-bold gradient-text helvetica-heading">Notifications</h2>
-                            <button id="closeNotifications" class="text-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gradient-start p-2 rounded-lg">
+                            <button id="closeNotifications" class="text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-gray-700 transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
-                        ${notifications.map((notification, index) => `
-                            <div class="py-4 ${index !== 0 ? 'border-t border-gray-700' : ''}">
-                                <h3 class="text-lg font-semibold gradient-text mb-2 helvetica-heading">${notification.title}</h3>
-                                <p class="text-gray-300">${notification.description}</p>
+                        ${notifications.length ? notifications.map((notification, index) => `
+                            <div class="py-4 ${index !== 0 ? 'border-t border-blue-900/40' : ''}">
+                                <h3 class="text-lg font-semibold text-blue-300 mb-2 helvetica-heading">${notification.title}</h3>
+                                <p class="text-gray-300 text-sm">${notification.description}</p>
                             </div>
-                        `).join('')}
+                        `).join('') : '<p class="text-gray-400 text-sm">Aucune notification pour le moment.</p>'}
                     </div>
                 </div>
             </div>
@@ -679,7 +682,7 @@
                 batteryEl.classList.remove('loading-pulse');
             });
         } else {
-            batteryEl.textContent = 'Not available';
+            batteryEl.textContent = 'Indisponible';
             batteryEl.classList.remove('loading-pulse');
         }
     }
@@ -692,8 +695,8 @@
         const dateEl = document.getElementById('currentDate');
         const timeEl = document.getElementById('currentTime');
 
-        dateEl.textContent = now.toLocaleDateString('en-CA', dateOptions).replace(/\//g, '-');
-        timeEl.textContent = now.toLocaleTimeString('en-GB', timeOptions);
+        dateEl.textContent = now.toLocaleDateString('fr-FR', dateOptions).replace(/\//g, '-');
+        timeEl.textContent = now.toLocaleTimeString('fr-FR', timeOptions);
 
         dateEl.classList.remove('loading-pulse');
         timeEl.classList.remove('loading-pulse');
@@ -749,7 +752,7 @@
         document.getElementById('sidebarTitleText').textContent = config.title || 'API Dashboard Pro';
 
         // Update welcome popup title
-        document.getElementById('welcomeTitle').textContent = `Welcome to ${config.title || 'API Dashboard Pro'}!`;
+        document.getElementById('welcomeTitle').textContent = `Bienvenue sur ${config.title || 'API Dashboard Pro'} !`;
 
         // Update notifications
         notifications = config.notifications || [];
@@ -775,11 +778,11 @@
     apiTesterBtn.addEventListener('click', () => {
         const apiTesterHTML = `
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-800 bg-opacity-90 rounded-xl shadow-lg overflow-hidden border-2 border-gradient-mid">
+                <div class="bg-gray-800/80 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden border border-blue-500/30 celestin-glow">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-6">
-                            <h2 class="text-2xl font-bold gradient-text helvetica-heading">API Tester</h2>
-                            <button id="closeApiTester" class="text-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gradient-start p-2 rounded-lg">
+                            <h2 class="text-2xl font-bold gradient-text helvetica-heading">Testeur d'API</h2>
+                            <button id="closeApiTester" class="text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-gray-700 transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -788,20 +791,19 @@
                         <div class="space-y-4">
                             <div class="space-y-4">
                                 <div class="relative">
-                                    <button id="apiSelectBtn" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gradient-start focus:border-gradient-start flex justify-between items-center">
-                                        <span id="apiSelectText">Select API</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <button id="apiSelectBtn" class="w-full px-3 py-2 bg-gray-900/90 border border-blue-900/50 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500 flex justify-between items-center transition">
+                                        <span id="apiSelectText" class="text-sm">Sélectionner une API</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                         </svg>
                                     </button>
-                                    <div id="apiDropdown" class="absolute z-10 w-full mt-1 bg-gray-700 border border-gray-600 rounded-md shadow-lg hidden">
+                                    <div id="apiDropdown" class="absolute z-10 w-full mt-1 bg-gray-900 border border-blue-900/50 rounded-md shadow-xl hidden">
                                         <ul class="py-1 max-h-60 overflow-auto custom-scrollbar">
-                                            <!-- API options will be dynamically inserted here -->
-                                        </ul>
+                                            </ul>
                                     </div>
                                 </div>
                                 <div class="relative">
-                                    <input type="text" id="apiUrl" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gradient-start focus:border-gradient-start pr-8" placeholder="Enter API URL">
+                                    <input type="text" id="apiUrl" class="w-full px-3 py-2 text-sm bg-gray-900/90 border border-blue-900/50 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 pr-8" placeholder="Entrer l'URL de l'API">
                                     <button id="clearApiUrl" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white focus:outline-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -810,26 +812,26 @@
                                 </div>
                             </div>
                             <div>
-                                <label for="apiMethod" class="block text-sm font-medium text-gray-300 mb-2">Method</label>
+                                <label for="apiMethod" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Méthode</label>
                                 <div id="apiMethod" class="flex space-x-2">
-                                    <button class="method-btn px-3 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gradient-start" data-method="GET">GET</button>
-                                    <button class="method-btn px-3 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gradient-start" data-method="POST">POST</button>
-                                    <button class="method-btn px-3 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gradient-start" data-method="PUT">PUT</button>
-                                    <button class="method-btn px-3 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gradient-start" data-method="DELETE">DELETE</button>
+                                    <button class="method-btn px-3 py-1.5 text-xs font-bold bg-gray-900 text-gray-300 border border-blue-900/40 rounded-md hover:border-blue-500 focus:outline-none transition" data-method="GET">GET</button>
+                                    <button class="method-btn px-3 py-1.5 text-xs font-bold bg-gray-900 text-gray-300 border border-blue-900/40 rounded-md hover:border-blue-500 focus:outline-none transition" data-method="POST">POST</button>
+                                    <button class="method-btn px-3 py-1.5 text-xs font-bold bg-gray-900 text-gray-300 border border-blue-900/40 rounded-md hover:border-blue-500 focus:outline-none transition" data-method="PUT">PUT</button>
+                                    <button class="method-btn px-3 py-1.5 text-xs font-bold bg-gray-900 text-gray-300 border border-blue-900/40 rounded-md hover:border-blue-500 focus:outline-none transition" data-method="DELETE">DELETE</button>
                                 </div>
                             </div>
                             <div>
-                                <label for="apiHeaders" class="block text-sm font-medium text-gray-300">Headers (JSON)</label>
-                                <textarea id="apiHeaders" rows="3" class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gradient-start focus:border-gradient-start"></textarea>
+                                <label for="apiHeaders" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">En-têtes / Headers (JSON)</label>
+                                <textarea id="apiHeaders" rows="3" class="w-full px-3 py-2 font-mono text-xs bg-gray-900/90 border border-blue-900/50 rounded-md text-blue-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                             </div>
                             <div>
-                                <label for="apiBody" class="block text-sm font-medium text-gray-300">Body (JSON)</label>
-                                <textarea id="apiBody" rows="5" class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gradient-start focus:border-gradient-start"></textarea>
+                                <label for="apiBody" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Corps / Body (JSON)</label>
+                                <textarea id="apiBody" rows="5" class="w-full px-3 py-2 font-mono text-xs bg-gray-900/90 border border-blue-900/50 rounded-md text-blue-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                             </div>
-                            <button id="sendRequest" class="w-full px-4 py-2 gradient-bg text-white rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-gradient-start focus:ring-opacity-50">Send Request</button>
+                            <button id="sendRequest" class="w-full px-4 py-2.5 gradient-bg text-white font-semibold rounded-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-400 transition shadow-md">Envoyer la requête</button>
                             <div>
-                                <label for="apiResponse" class="block text-sm font-medium text-gray-300">Response</label>
-                                <textarea id="apiResponse" rows="10" readonly class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none" placeholder="Response will appear here..."></textarea>
+                                <label for="apiResponse" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Réponse</label>
+                                <textarea id="apiResponse" rows="10" readonly class="w-full px-3 py-2 font-mono text-xs bg-gray-950 border border-blue-900/40 rounded-md text-green-400 focus:outline-none" placeholder="La réponse s'affichera ici..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -879,18 +881,19 @@
                 } else if (contentType && contentType.includes('image')) {
                     const blob = await response.blob();
                     const imageUrl = URL.createObjectURL(blob);
-                    responseTextarea.value = 'Image received. See below:';
+                    responseTextarea.value = 'Image reçue. Voir ci-dessous :';
                     const img = document.createElement('img');
                     img.src = imageUrl;
                     img.style.maxWidth = '100%';
                     img.style.marginTop = '10px';
+                    img.className = 'rounded-md border border-blue-500/30';
                     responseTextarea.parentNode.appendChild(img);
                 } else {
                     const textResponse = await response.text();
                     responseTextarea.value = textResponse;
                 }
             } catch (error) {
-                responseTextarea.value = `Error: ${error.message}`;
+                responseTextarea.value = `Erreur: ${error.message}`;
             }
         });
 
@@ -909,7 +912,7 @@
             ul.innerHTML = '';
             apiList.forEach(api => {
                 const li = document.createElement('li');
-                li.innerHTML = `<a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-600">${api.name}</a>`;
+                li.innerHTML = `<a href="#" class="block px-4 py-2 text-sm text-gray-200 hover:bg-blue-900/50 hover:text-white transition">${api.name}</a>`;
                 li.querySelector('a').addEventListener('click', (e) => {
                     e.preventDefault();
                     document.getElementById('apiUrl').value = api.endpoint;
@@ -936,7 +939,7 @@
 
         document.getElementById('clearApiUrl').addEventListener('click', () => {
             document.getElementById('apiUrl').value = '';
-            document.getElementById('apiSelectText').textContent = 'Select API';
+            document.getElementById('apiSelectText').textContent = 'Sélectionner une API';
             clearApiTesterContent();
         });
 
@@ -951,4 +954,3 @@
     </script>
 </body>
 </html>
-
