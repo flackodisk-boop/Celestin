@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rest API Portal - Professional API Solutions</title>
+  <title>Portail API REST - Solutions API Professionnelles (Édition Célestin)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            background: '#151B2C',
-            surface: '#1B2137',
-            accent: '#00E1FF',
-            border: '#2A3447'
+            background: '#02040a',
+            surface: '#0b132b',
+            accent: '#38bdf8',
+            border: '#1d4ed8'
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
@@ -25,36 +26,43 @@
   </script>
   <style>
     body {
-      background-color: #151B2C;
+      background-color: #02040a;
       color: rgba(255, 255, 255, 0.87);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 25%);
+      background-attachment: fixed;
     }
     .gradient-bg {
-      background: linear-gradient(135deg, #00E1FF, #0066FF);
+      background: linear-gradient(135deg, #38bdf8, #2563eb, #1d4ed8);
     }
     .gradient-text {
-      background: linear-gradient(135deg, #00E1FF, #0066FF);
+      background: linear-gradient(135deg, #38bdf8, #60a5fa, #2563eb);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
     .gradient-border {
-      border-image: linear-gradient(135deg, #00E1FF, #0066FF) 1;
+      border-image: linear-gradient(135deg, #38bdf8, #2563eb) 1;
+    }
+    .celestin-glow {
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
     }
   </style>
 </head>
-<body class="font-sans antialiased">
-  <header class="fixed top-0 left-0 right-0 bg-surface border-b border-border z-50">
+<body class="font-sans antialiased text-gray-100">
+  <header class="fixed top-0 left-0 right-0 bg-gray-900/90 backdrop-blur-md border-b border-blue-600/30 z-50">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center py-4">
         <div class="flex items-center space-x-2">
-          <img src="https://i.ibb.co/XYk4dXn/image.png" alt="AjiroDesu Logo" class="w-8 h-8">
-          <h1 class="text-xl font-semibold gradient-text">Rest API Portal</h1>
+          <img src="https://i.ibb.co/XYk4dXn/image.png" alt="Logo AjiroDesu" class="w-8 h-8 filter drop-shadow-[0_0_5px_rgba(56,189,248,0.8)]">
+          <h1 class="text-xl font-semibold gradient-text">Portail API REST</h1>
         </div>
         <nav class="hidden md:flex space-x-6">
-          <a href="#features" class="text-white/70 hover:text-accent transition duration-300 text-sm font-medium">Features</a>
-          <a href="#terms" class="text-white/70 hover:text-accent transition duration-300 text-sm font-medium">Terms</a>
+          <a href="#features" class="text-gray-300 hover:text-blue-400 transition duration-300 text-sm font-medium">Fonctionnalités</a>
+          <a href="#terms" class="text-gray-300 hover:text-blue-400 transition duration-300 text-sm font-medium">Conditions</a>
         </nav>
-        <button id="menu-toggle" class="md:hidden text-white/70 hover:text-accent transition duration-300" aria-label="Toggle mobile menu">
+        <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-blue-400 transition duration-300" aria-label="Basculer le menu mobile">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -63,10 +71,10 @@
     </div>
   </header>
 
-  <nav id="mobile-menu" class="fixed inset-0 bg-background z-40 hidden">
+  <nav id="mobile-menu" class="fixed inset-0 bg-background/95 backdrop-blur-lg z-40 hidden">
     <div class="flex flex-col items-center justify-center h-full space-y-8">
-      <a href="#features" class="text-white/70 hover:text-accent transition duration-300 text-lg font-medium">Features</a>
-      <a href="#terms" class="text-white/70 hover:text-accent transition duration-300 text-lg font-medium">Terms</a>
+      <a href="#features" class="text-gray-300 hover:text-blue-400 transition duration-300 text-lg font-medium">Fonctionnalités</a>
+      <a href="#terms" class="text-gray-300 hover:text-blue-400 transition duration-300 text-lg font-medium">Conditions</a>
     </div>
   </nav>
 
@@ -75,33 +83,33 @@
       <div class="container mx-auto max-w-4xl">
         <div class="text-center">
           <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 gradient-text leading-tight tracking-tight">
-            Free REST API
+            API REST Gratuite
           </h2>
-          <p class="text-lg sm:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Access powerful API endpoints for your projects without the hassle of authentication. Start building amazing applications today!
+          <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Accédez à des endpoints API puissants pour vos projets sans les tracas de l'authentification. Commencez à créer des applications incroyables dès aujourd'hui !
           </p>
-          <a href="/docs" class="inline-block gradient-bg text-white font-semibold py-4 px-8 rounded-lg transition duration-300 ease-in-out text-lg hover:opacity-90">
-            View Dashboard
+          <a href="/docs" class="inline-block gradient-bg text-white font-semibold py-4 px-8 rounded-lg transition duration-300 ease-in-out text-lg hover:brightness-110 shadow-lg celestin-glow">
+            Voir le Tableau de Bord
           </a>
         </div>
       </div>
     </section>
 
-    <section id="features" class="py-20 sm:py-32 bg-surface border-y border-border">
+    <section id="features" class="py-20 sm:py-32 bg-gray-900/60 border-y border-blue-900/40">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16 text-center gradient-text">Why Choose Our API?</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16 text-center gradient-text">Pourquoi Choisir Notre API ?</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-background p-8 rounded-lg border border-border hover:border-accent transition duration-300">
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-accent">No Authentication</h3>
-            <p class="text-white/70 leading-relaxed">Access our APIs instantly without the need for API keys or complex authentication processes.</p>
+          <div class="bg-gray-900/90 p-8 rounded-xl border border-blue-900/40 hover:border-blue-500/60 transition duration-300">
+            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-blue-400">Aucune Authentification</h3>
+            <p class="text-gray-300 leading-relaxed">Accédez à nos APIs instantanément sans avoir besoin de clés API ou de processus d'authentification complexes.</p>
           </div>
-          <div class="bg-background p-8 rounded-lg border border-border hover:border-accent transition duration-300">
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-accent">High Performance</h3>
-            <p class="text-white/70 leading-relaxed">Enjoy fast response times and reliable service for all your API needs.</p>
+          <div class="bg-gray-900/90 p-8 rounded-xl border border-blue-900/40 hover:border-blue-500/60 transition duration-300">
+            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-blue-400">Haute Performance</h3>
+            <p class="text-gray-300 leading-relaxed">Profitez de temps de réponse rapides et d'un service fiable pour tous vos besoins en matière d'API.</p>
           </div>
-          <div class="bg-background p-8 rounded-lg border border-border hover:border-accent transition duration-300">
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-accent">Comprehensive Documentation</h3>
-            <p class="text-white/70 leading-relaxed">Access detailed documentation to help you integrate our API seamlessly into your projects.</p>
+          <div class="bg-gray-900/90 p-8 rounded-xl border border-blue-900/40 hover:border-blue-500/60 transition duration-300">
+            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-blue-400">Documentation Complète</h3>
+            <p class="text-gray-300 leading-relaxed">Accédez à une documentation détaillée pour vous aider à intégrer nos APIs en toute simplicité dans vos projets.</p>
           </div>
         </div>
       </div>
@@ -109,34 +117,34 @@
 
     <section id="terms" class="py-20 sm:py-32">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16 text-center gradient-text">Terms of Service</h2>
-        <div class="bg-surface p-8 sm:p-12 rounded-lg border border-accent">
-          <h3 class="text-2xl sm:text-3xl font-semibold mb-8 gradient-text">Usage Guidelines</h3>
-          <p class="text-white/70 mb-8 leading-relaxed text-lg">By using our API, you agree to the following terms:</p>
-          <ul class="list-disc list-inside space-y-4 text-white/70 mb-8 text-lg">
-            <li>Use the API for lawful purposes only</li>
-            <li>Do not attempt to overload or disrupt our services</li>
-            <li>Respect rate limits and usage quotas</li>
-            <li>Attribute our API when using it in your applications</li>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16 text-center gradient-text">Conditions d'Utilisation</h2>
+        <div class="bg-gray-800/80 backdrop-blur-md p-8 sm:p-12 rounded-xl border border-blue-500/40 celestin-glow">
+          <h3 class="text-2xl sm:text-3xl font-semibold mb-8 gradient-text">Directives d'Utilisation</h3>
+          <p class="text-gray-300 mb-8 leading-relaxed text-lg">En utilisant notre API, vous acceptez les conditions suivantes :</p>
+          <ul class="list-disc list-inside space-y-4 text-gray-300 mb-8 text-lg">
+            <li>Utiliser l'API uniquement à des fins légales</li>
+            <li>Ne pas tenter de surcharger ou de perturber nos services</li>
+            <li>Respecter les limites de débit et les quotas d'utilisation</li>
+            <li>Attribuer notre API lors de son utilisation dans vos applications</li>
           </ul>
-          <h4 class="text-xl font-semibold mb-4 text-accent">Limitations of Liability</h4>
-          <p class="text-white/70 mb-8 leading-relaxed">Our API is provided "as is" without any warranties, express or implied. We are not liable for any damages arising from the use of our API.</p>
-          <h4 class="text-xl font-semibold mb-4 text-accent">Data Privacy</h4>
-          <p class="text-white/70 leading-relaxed">We respect your privacy and handle all data in accordance with our Privacy Policy. By using our API, you consent to our data practices as described in the Privacy Policy.</p>
+          <h4 class="text-xl font-semibold mb-4 text-blue-400">Limitations de Responsabilité</h4>
+          <p class="text-gray-300 mb-8 leading-relaxed">Notre API est fournie "en l'état", sans aucune garantie, expresse ou implicite. Nous ne sommes pas responsables des dommages résultant de l'utilisation de notre API.</p>
+          <h4 class="text-xl font-semibold mb-4 text-blue-400">Confidentialité des Données</h4>
+          <p class="text-gray-300 leading-relaxed">Nous respectons votre vie privée et traitons toutes les données conformément à notre Politique de Confidentialité. En utilisant notre API, vous consentez à nos pratiques de traitement des données telles que décrites dans la Politique de Confidentialité.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-surface border-t border-border py-12">
+  <footer class="bg-gray-900/90 border-t border-blue-600/30 py-12">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
-          <p class="text-white/70">&copy; <span id="current-year"></span> Rest API Portal</p>
+          <p class="text-gray-400">&copy; <span id="current-year"></span> Portail API REST</p>
         </div>
         <div>
-          <a href="https://facebook.com/lance.cochangco" target="_blank" rel="noopener noreferrer" class="gradient-text hover:opacity-90 transition duration-300">
-            Developed by AjiroDesu
+          <a href="https://facebook.com/lance.cochangco" target="_blank" rel="noopener noreferrer" class="gradient-text hover:brightness-110 transition duration-300">
+            Développé par AjiroDesu
           </a>
         </div>
       </div>
@@ -174,4 +182,3 @@
   </script>
 </body>
 </html>
-
